@@ -56,8 +56,12 @@ const FLTImagePickerMIMEType kFLTImagePickerMIMETypeDefault = FLTImagePickerMIME
       (__bridge CFMutableDataRef)mutableData, CGImageSourceGetType(cgImage), 1, nil);
   CGImageDestinationAddImageFromSource(destination, cgImage, 0, (__bridge CFDictionaryRef)metaData);
   CGImageDestinationFinalize(destination);
-  CFRelease(cgImage);
-  CFRelease(destination);
+  if (cgImage != NULL) {
+    CFRelease(cgImage);
+  }
+  if (cgImage != NULL) {
+    CFRelease(destination);
+  }
   return mutableData;
 }
 
