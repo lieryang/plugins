@@ -61,8 +61,8 @@ const FLTImagePickerMIMEType kFLTImagePickerMIMETypeDefault = FLTImagePickerMIME
     CFRelease(destination);
     return [NSData data];
   }
-    CFRelease(cgImage);
-    CGImageRelease(destination);
+  CFRelease(cgImage);
+  CFRelease(destination);
   
   return mutableData;
 }
